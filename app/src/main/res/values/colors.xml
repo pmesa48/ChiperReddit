@@ -12,4 +12,6 @@
 
     <color name="colorTitle">#4E4E4E</color>
     <color name="colorSubtitle">#727272</color>
+    <color name="whiteTitle">#FFFFFF</color>
+    <color name="blackTitle">#4E4E4E</color>
 </resources>

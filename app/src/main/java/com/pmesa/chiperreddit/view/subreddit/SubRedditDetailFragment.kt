@@ -69,12 +69,15 @@ class SubRedditDetailFragment : Fragment() {
             url_tv.text = it.url
             display_name_tv.text = it.displayName
             lang_tv.text = subreddit.lang?.toUpperCase()
-            subscribers_tv.text = "${subreddit?.subscribers}"
-            over18_tv.text = if(subreddit.over18 == true) "YES" else "NO"
+            subscribers_tv.text = "${subreddit.subscribers}"
+            over18_tv.text = if(subreddit.over18 == true) getString(R.string.yes_option) else getString(
+                            R.string.no_option)
             if(subreddit.icon != null && subreddit.icon.isNotBlank())
                 Picasso.get().load(subreddit.icon).into(community_icon_iv)
+            else
+                community_icon_iv.visibility = View.GONE
         }
-        activity?.title = "${subreddit?.displayName} Reddit"
+        activity?.title = subreddit?.displayName.toString() + getString(R.string.reddit)
     }
 
     override fun onCreateView(

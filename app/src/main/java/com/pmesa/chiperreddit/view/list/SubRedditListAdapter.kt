@@ -1,12 +1,15 @@
 package com.pmesa.chiperreddit.view.list
 
-import android.R.attr
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.ColorSpace
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.common.inflate
@@ -49,6 +52,7 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
         mSubtitle.text = subReddit.url
         mSubscribers.text = "${subReddit.subscribers}  ${itemView.context.getString(R.string.subscribers_lbl)}"
         mLang.text = subReddit.lang?.toUpperCase()
+        mTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.blackTitle))
         mContainer.setBackgroundResource(R.color.cardview_light_background)
         if(subReddit.background != null && subReddit.background.isNotBlank()){
             Picasso.get().load(subReddit.background).into(object : Target{
@@ -60,7 +64,7 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
                 }
 
                 override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
-                    mContainer.background =  BitmapDrawable(bitmap)
+                    bitmap?.let { mContainer.background = BitmapDrawable(it) }
                 }
 
             })

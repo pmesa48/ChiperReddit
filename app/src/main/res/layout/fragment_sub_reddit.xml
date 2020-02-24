@@ -59,7 +59,7 @@
         style="@style/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/community_icon_iv"
+        android:layout_below="@id/url_tv"
         android:text="@string/over_18" />
 
     <TextView
