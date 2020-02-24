@@ -25,7 +25,7 @@ class SubRedditListViewModel(application: Application, db: AppDatabase, api: Red
         return subreddits!!
     }
 
-    private fun loadSubReddits() {
+    fun loadSubReddits() {
         viewModelScope.launch {
             subRedditRepository.get { list, b ->
                 subreddits?.value = list

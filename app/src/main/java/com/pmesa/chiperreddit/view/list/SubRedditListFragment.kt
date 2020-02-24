@@ -35,6 +35,9 @@ class SubRedditListFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        refresh_layout_srl.setOnRefreshListener {
+            viewModel.loadSubReddits()
+        }
         viewAdapter = SubRedditListAdapter { position: Int, subReddit: RoomSubReddit ->
             debug(TAG, "Clicked position #$position - ${subReddit.displayName}")
             goToSubReddit(subReddit)
@@ -57,6 +60,7 @@ class SubRedditListFragment : Fragment() {
     }
 
     private fun updateSubRedditList(subreddits: List<RoomSubReddit>) {
+        refresh_layout_srl.isRefreshing = false
         viewAdapter.update(subreddits)
     }
 
