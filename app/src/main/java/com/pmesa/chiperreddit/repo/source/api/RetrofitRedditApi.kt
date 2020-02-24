@@ -10,7 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitRedditApi : RedditApi {
+class RetrofitRedditApi(val retrofit: Retrofit) : RedditApi {
 
     private val mService: RedditApiServices = retrofit.create<RedditApiServices>(
             RedditApiServices::class.java)
@@ -38,17 +38,25 @@ class RetrofitRedditApi : RedditApi {
 
     companion object{
         val TAG = RetrofitRedditApi::class.java.simpleName
-        val retrofit: Retrofit =
-            Retrofit.Builder().baseUrl("https://reddit.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(getHttpClient())
-                .build()
+
+        var instance: RetrofitRedditApi? = null
+
         private fun getHttpClient(): OkHttpClient {
             val logging = HttpLoggingInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
             val httpClient = OkHttpClient.Builder()
             httpClient.addInterceptor(logging)
             return httpClient.build()
+        }
+
+        fun getIntance(): RedditApi {
+            if(instance == null){
+                instance = RetrofitRedditApi(Retrofit.Builder().baseUrl("https://reddit.com/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(getHttpClient())
+                    .build())
+            }
+            return instance as RetrofitRedditApi
         }
     }
 }

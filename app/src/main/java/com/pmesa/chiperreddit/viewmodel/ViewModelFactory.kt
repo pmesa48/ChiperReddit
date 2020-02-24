@@ -5,8 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.pmesa.chiperreddit.repo.source.api.RetrofitRedditApi
 import com.pmesa.chiperreddit.repo.source.cache.AppDatabase
-import com.pmesa.chiperreddit.view.connectivity.ChiperConnectivityManager
-import com.pmesa.chiperreddit.view.connectivity.ConnectivityViewModel
 
 
 class ViewModelFactory private constructor(
@@ -17,11 +15,9 @@ class ViewModelFactory private constructor(
         with(modelClass) {
             when {
                 isAssignableFrom(SubRedditDetailViewModel::class.java) ->
-                    SubRedditDetailViewModel(db, RetrofitRedditApi())
+                    SubRedditDetailViewModel(db, RetrofitRedditApi.getIntance())
                 isAssignableFrom(SubRedditListViewModel::class.java) ->
-                    SubRedditListViewModel(application, db, RetrofitRedditApi())
-                isAssignableFrom(ConnectivityViewModel::class.java) ->
-                    ConnectivityViewModel(ChiperConnectivityManager(application), application)
+                    SubRedditListViewModel(application, db, RetrofitRedditApi.getIntance())
                 else ->
                     error("Invalid View Model class")
             }

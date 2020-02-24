@@ -28,41 +28,23 @@ class ConnectivityFragment : Fragment() {
 
     private var listener: OnConnectivityEvent? = null
 
-    private var viewModel: ConnectivityViewModel? = null
-
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, ViewModelFactory
-            .getInstance(activity!!.application)).get(ConnectivityViewModel::class.java)
-        viewModel?.getStatus()?.observe(viewLifecycleOwner, Observer {
-            draw(it)
-        })
-    }
-
-    private fun draw(status: Status?) {
-        if(status != null){
-            if(status.connected){
-                makeAvailable()
-            } else {
-                makeUnavailable()
-            }
-        } else {
-            makeUnavailable()
-        }
-    }
+    private var isAvailable: Boolean = false
 
     fun makeUnavailable() {
+        isAvailable = false
         connectivity_container.visibility = View.VISIBLE
         connectivity_container.setBackgroundResource(R.color.colorAccent)
-        connectivity_status_tv.text = "Offline"
+        connectivity_status_tv.text = getString(R.string.tag_offline)
     }
 
     fun makeAvailable() {
-        connectivity_container.visibility = View.VISIBLE
-        connectivity_container.setBackgroundResource(R.color.colorPrimaryDark)
-        connectivity_status_tv.text = "Online"
-        Handler().postDelayed({ connectivity_container.visibility = View.GONE }, 2000)
+        if(!isAvailable) {
+            isAvailable = true
+            connectivity_container.visibility = View.VISIBLE
+            connectivity_container.setBackgroundResource(R.color.colorPrimaryDark)
+            connectivity_status_tv.text = getString(R.string.tag_online)
+            Handler().postDelayed({ connectivity_container.visibility = View.GONE }, 2000)
+        }
     }
 
     override fun onCreateView(
@@ -88,28 +70,9 @@ class ConnectivityFragment : Fragment() {
         listener = null
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     *
-     *
-     * See the Android Training lesson [Communicating with Other Fragments]
-     * (http://developer.android.com/training/basics/fragments/communicating.html)
-     * for more information.
-     */
     interface OnConnectivityEvent
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ConnectivityFragment.
-         */
         @JvmStatic
         fun newInstance() = ConnectivityFragment().apply { arguments = Bundle() }
     }
