@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 import com.pmesa.chiperreddit.viewmodel.SubRedditDetailViewModel
-import com.pmesa.chiperreddit.viewmodel.SubRedditListViewModel
 import com.pmesa.chiperreddit.viewmodel.ViewModelFactory
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.fragment_sub_reddit.*
@@ -22,12 +20,12 @@ import kotlinx.android.synthetic.main.fragment_sub_reddit.*
 /**
  * A simple [Fragment] subclass.
  * Activities that contain this fragment must implement the
- * [SubRedditFragment.OnFragmentInteractionListener] interface
+ * [SubRedditDetailFragment.OnFragmentInteractionListener] interface
  * to handle interaction events.
- * Use the [SubRedditFragment.newInstance] factory method to
+ * Use the [SubRedditDetailFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class SubRedditFragment : Fragment() {
+class SubRedditDetailFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private var mUrl: String? = null
 
@@ -98,7 +96,7 @@ class SubRedditFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String) =
-            SubRedditFragment().apply {
+            SubRedditDetailFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM_SUBREDDIT_URL, param1)
                 }

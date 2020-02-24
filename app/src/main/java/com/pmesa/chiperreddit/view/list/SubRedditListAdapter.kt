@@ -1,5 +1,9 @@
 package com.pmesa.chiperreddit.view.list
 
+import android.R.attr
+import android.graphics.Bitmap
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -7,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.common.inflate
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
+import com.squareup.picasso.Picasso
+import com.squareup.picasso.Target
+
 
 class SubRedditListAdapter(private var onClickListener: (Int, RoomSubReddit) -> Unit): RecyclerView.Adapter<SubRedditViewHolder>() {
 
@@ -38,6 +45,22 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
     fun bind(subReddit: RoomSubReddit, position: Int) {
         mTitle.text = subReddit.displayName
         mSubtitle.text = subReddit.url
+        mContainer.setBackgroundResource(R.color.cardview_light_background)
+        if(subReddit.background != null && subReddit.background.isNotBlank()){
+            Picasso.get().load(subReddit.background).into(object : Target{
+                override fun onPrepareLoad(placeHolderDrawable: Drawable?) {
+
+                }
+
+                override fun onBitmapFailed(e: Exception?, errorDrawable: Drawable?) {
+                }
+
+                override fun onBitmapLoaded(bitmap: Bitmap?, from: Picasso.LoadedFrom?) {
+                    mContainer.background =  BitmapDrawable(bitmap)
+                }
+
+            })
+        }
         mContainer.setOnClickListener { onClickListener(position,subReddit)  }
     }
 

@@ -10,6 +10,11 @@ import java.util.*
 
 
 /**
+ *
+ *
+ * https://gist.github.com/Osjack/f405224950cbcc82415d2f3506dff0c9
+ *
+ *
  * NetworkStateReceiver defines a BroadcastReceiver which allows us to register for system (i.e. network status) or application events.
  * All registered receivers for an event are notified by the Android runtime once this event happens.
  * Source: http://stackoverflow.com/questions/6169059/android-event-for-internet-connectivity-state-change

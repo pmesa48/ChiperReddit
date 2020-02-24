@@ -22,7 +22,16 @@ class SubRedditDto {
     var childData: SubRedditDtoData? = null
 
     fun toRoom(): RoomSubReddit {
-        return RoomSubReddit(childData?.url ?: "", childData?.name, childData?.displayName, childData?.description, childData?.url, childData?.iconImg)
+        return RoomSubReddit(
+            childData?.url ?: "",
+            childData?.name,
+            childData?.displayName,
+            childData?.description,
+            childData?.url,
+            childData?.iconImg,
+            childData?.bannerImage,
+            childData?.over18,
+            childData?.subscribers)
     }
 }
 
@@ -33,19 +42,27 @@ class SubRedditDtoData {
     @SerializedName("icon_img")
     @Expose
     var iconImg: String? = null
+    @SerializedName("banner_background_image")
+    @Expose
+    var bannerImage: String? = null
     @SerializedName("name")
     @Expose
     var name: String? = null
     @SerializedName("over18")
     @Expose
-    private var over18 = false
+    var over18 = false
     @SerializedName("description")
     @Expose
     var description: String? = null
     @SerializedName("lang")
     @Expose
-    private var lang: String? = null
+    var lang: String? = null
     @SerializedName("url")
     @Expose
     var url: String? = null
+    @SerializedName("subscribers")
+    @Expose
+    var subscribers: Long? = 0
+
+
 }

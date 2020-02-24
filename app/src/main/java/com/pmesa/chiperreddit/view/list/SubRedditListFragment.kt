@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.common.debug
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
-import com.pmesa.chiperreddit.view.subreddit.SubRedditActivity
-import com.pmesa.chiperreddit.view.subreddit.SubRedditFragment
+import com.pmesa.chiperreddit.view.subreddit.SubRedditDetailActivity
+import com.pmesa.chiperreddit.view.subreddit.SubRedditDetailFragment
 import com.pmesa.chiperreddit.viewmodel.SubRedditListViewModel
 import com.pmesa.chiperreddit.viewmodel.ViewModelFactory
 import kotlinx.android.synthetic.main.sub_reddit_list_fragment.*
@@ -41,9 +41,9 @@ class SubRedditListFragment : Fragment() {
             debug(TAG, "Clicked position #$position - ${subReddit.displayName}")
             goToSubReddit(subReddit)
         }
-        rvSubreddits.adapter = viewAdapter
-        rvSubreddits.layoutManager = LinearLayoutManager(context)
-        rvSubreddits.setHasFixedSize(true)
+        subreddits_rv.adapter = viewAdapter
+        subreddits_rv.layoutManager = LinearLayoutManager(context)
+        subreddits_rv.setHasFixedSize(true)
         viewModel = ViewModelProviders.of(this,
             ViewModelFactory.getInstance(activity!!.application)).get(SubRedditListViewModel::class.java)
         viewModel.getSubReddits().observe(viewLifecycleOwner, Observer {
@@ -53,8 +53,8 @@ class SubRedditListFragment : Fragment() {
     }
 
     private fun goToSubReddit(subReddit: RoomSubReddit) {
-        startActivity(Intent(activity, SubRedditActivity::class.java).apply {
-            putExtra(SubRedditFragment.ARG_PARAM_SUBREDDIT_URL, subReddit.url)
+        startActivity(Intent(activity, SubRedditDetailActivity::class.java).apply {
+            putExtra(SubRedditDetailFragment.ARG_PARAM_SUBREDDIT_URL, subReddit.url)
         })
     }
 
@@ -65,9 +65,7 @@ class SubRedditListFragment : Fragment() {
 
     companion object {
         val TAG = SubRedditListFragment::class.java.simpleName
-        fun newInstance() =
-            SubRedditListFragment()
-
+        fun newInstance() = SubRedditListFragment()
     }
 
 }

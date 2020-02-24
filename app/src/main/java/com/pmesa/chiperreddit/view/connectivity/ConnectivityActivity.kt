@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.pmesa.chiperreddit.view.connectivity.NetworkStateReceiver.NetworkStateReceiverListener
 
 
+/**
+ * https://gist.github.com/Osjack/f405224950cbcc82415d2f3506dff0c9
+ */
 abstract class ConnectivityActivity : AppCompatActivity(), NetworkStateReceiverListener {
 
     private var networkStateReceiver // Receiver that detects network state changes

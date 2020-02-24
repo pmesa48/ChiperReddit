@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.subreddit.SubRedditActivity">
+    tools:context=".view.subreddit.SubRedditDetailActivity">
 
     <FrameLayout
         android:id="@+id/subreddit_fragment_container"

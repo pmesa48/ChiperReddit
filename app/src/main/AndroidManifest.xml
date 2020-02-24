@@ -23,9 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.subreddit.SubRedditActivity" />
+        <activity android:name=".view.subreddit.SubRedditDetailActivity" />
         <activity
-            android:name=".view.list.MainActivity">
+            android:name=".view.list.SubRedditListActivity">
         </activity>
     </application>
 

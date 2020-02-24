@@ -7,7 +7,7 @@ import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.view.connectivity.ConnectivityActivity
 import com.pmesa.chiperreddit.view.connectivity.ConnectivityFragment
 
-class MainActivity : ConnectivityActivity(), ConnectivityFragment.OnConnectivityEvent {
+class SubRedditListActivity : ConnectivityActivity(), ConnectivityFragment.OnConnectivityEvent {
 
     private lateinit var connectivityFragment: ConnectivityFragment
 
