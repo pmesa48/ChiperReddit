@@ -30,6 +30,7 @@ class SubRedditDto {
             childData?.url,
             childData?.iconImg,
             childData?.bannerImage,
+            childData?.lang,
             childData?.over18,
             childData?.subscribers)
     }
@@ -51,7 +52,7 @@ class SubRedditDtoData {
     @SerializedName("over18")
     @Expose
     var over18 = false
-    @SerializedName("description")
+    @SerializedName("public_description")
     @Expose
     var description: String? = null
     @SerializedName("lang")

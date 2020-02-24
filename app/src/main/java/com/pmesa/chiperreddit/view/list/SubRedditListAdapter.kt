@@ -40,11 +40,15 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
 
     private var mTitle: TextView = view.findViewById(R.id.subreddit_title)
     private var mSubtitle: TextView = view.findViewById(R.id.subreddit_subtitle)
+    private var mLang: TextView = view.findViewById(R.id.lang_tv)
+    private var mSubscribers: TextView = view.findViewById(R.id.subscribers_tv)
     private var mContainer: View = view.findViewById(R.id.subreddit_clickeable_layout)
 
     fun bind(subReddit: RoomSubReddit, position: Int) {
         mTitle.text = subReddit.displayName
         mSubtitle.text = subReddit.url
+        mSubscribers.text = "${subReddit.subscribers}  ${itemView.context.getString(R.string.subscribers_lbl)}"
+        mLang.text = subReddit.lang?.toUpperCase()
         mContainer.setBackgroundResource(R.color.cardview_light_background)
         if(subReddit.background != null && subReddit.background.isNotBlank()){
             Picasso.get().load(subReddit.background).into(object : Target{

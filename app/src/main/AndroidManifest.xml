@@ -15,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.splash.SplashActivity"
+        <activity android:name=".view.external.WebViewActivity"></activity>
+        <activity
+            android:name=".view.splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,9 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.subreddit.SubRedditDetailActivity" />
-        <activity
-            android:name=".view.list.SubRedditListActivity">
-        </activity>
+        <activity android:name=".view.list.SubRedditListActivity"></activity>
     </application>
 
 </manifest>

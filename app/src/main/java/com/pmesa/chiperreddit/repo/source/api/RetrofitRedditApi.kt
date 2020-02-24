@@ -1,6 +1,7 @@
 package com.pmesa.chiperreddit.repo.source.api
 
 import android.util.Log
+import com.pmesa.chiperreddit.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
@@ -49,9 +50,9 @@ class RetrofitRedditApi(retrofit: Retrofit) : RedditApi {
             return httpClient.build()
         }
 
-        fun getIntance(): RedditApi {
+        fun getInstance(): RedditApi {
             if(instance == null){
-                instance = RetrofitRedditApi(Retrofit.Builder().baseUrl("https://reddit.com/")
+                instance = RetrofitRedditApi(Retrofit.Builder().baseUrl(BuildConfig.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(getHttpClient())
                     .build())

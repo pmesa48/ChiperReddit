@@ -12,5 +12,22 @@
         <item name="android:windowBackground">@drawable/splash_screen</item>
     </style>
 
+    <style name="Title" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">@color/colorTitle</item>
+    </style>
+
+    <style name="SubTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/colorSubtitle</item>
+    </style>
+
+    <style name="Info" parent="Widget.AppCompat.TextView">
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorSubtitle</item>
+    </style>
 
 </resources>

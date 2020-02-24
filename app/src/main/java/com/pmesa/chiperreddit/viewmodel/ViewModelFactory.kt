@@ -15,9 +15,9 @@ class ViewModelFactory private constructor(
         with(modelClass) {
             when {
                 isAssignableFrom(SubRedditDetailViewModel::class.java) ->
-                    SubRedditDetailViewModel(db, RetrofitRedditApi.getIntance())
+                    SubRedditDetailViewModel(db, RetrofitRedditApi.getInstance())
                 isAssignableFrom(SubRedditListViewModel::class.java) ->
-                    SubRedditListViewModel(application, db, RetrofitRedditApi.getIntance())
+                    SubRedditListViewModel(application, db, RetrofitRedditApi.getInstance())
                 else ->
                     error("Invalid View Model class")
             }

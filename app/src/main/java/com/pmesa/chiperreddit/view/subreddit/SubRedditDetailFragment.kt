@@ -1,6 +1,7 @@
 package com.pmesa.chiperreddit.view.subreddit
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import com.pmesa.chiperreddit.BuildConfig
 
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
+import com.pmesa.chiperreddit.view.external.WebViewActivity
 import com.pmesa.chiperreddit.viewmodel.SubRedditDetailViewModel
 import com.pmesa.chiperreddit.viewmodel.ViewModelFactory
 import com.squareup.picasso.Picasso
@@ -29,6 +32,8 @@ class SubRedditDetailFragment : Fragment() {
     private var listener: OnFragmentInteractionListener? = null
     private var mUrl: String? = null
 
+    private var webViewUrl: String? = null
+
     private lateinit var viewModel: SubRedditDetailViewModel
 
 
@@ -41,6 +46,15 @@ class SubRedditDetailFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        go_to_btn.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, WebViewActivity::class.java)
+                if (webViewUrl != null && webViewUrl!!.isNotEmpty()) {
+                    intent.putExtra(WebViewActivity.URL, webViewUrl)
+                    startActivity(intent)
+                }
+            }
+        }
         viewModel = ViewModelProviders.of(this,
             ViewModelFactory.getInstance(activity!!.application)).get(SubRedditDetailViewModel::class.java)
         viewModel.getSubReddit(mUrl ?: "")?.observe(viewLifecycleOwner, Observer {
@@ -50,12 +64,17 @@ class SubRedditDetailFragment : Fragment() {
 
     private fun displayData(subreddit: RoomSubReddit?) {
         subreddit?.let {
+            webViewUrl = "${BuildConfig.BASE_URL}${subreddit.url}"
             description_tv.text = it.description
             url_tv.text = it.url
             display_name_tv.text = it.displayName
+            lang_tv.text = subreddit.lang?.toUpperCase()
+            subscribers_tv.text = "${subreddit?.subscribers}"
+            over18_tv.text = if(subreddit.over18 == true) "YES" else "NO"
             if(subreddit.icon != null && subreddit.icon.isNotBlank())
                 Picasso.get().load(subreddit.icon).into(community_icon_iv)
         }
+        activity?.title = "${subreddit?.displayName} Reddit"
     }
 
     override fun onCreateView(

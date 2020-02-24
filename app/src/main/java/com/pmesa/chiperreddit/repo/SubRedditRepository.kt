@@ -15,7 +15,7 @@ class SubRedditRepository(
     private val mApi: RedditApi) : CoroutineScope {
 
 
-    fun get(callback: (List<RoomSubReddit>, Boolean) -> Unit) {
+    fun get(callback: (List<RoomSubReddit>) -> Unit) {
             mApi.getContent { list, error ->
                 if (!error) {
                     fetchFromApi(list, callback)
@@ -25,23 +25,23 @@ class SubRedditRepository(
             }
      }
 
-    private fun fetchFromCache(callback: (List<RoomSubReddit>, Boolean) -> Unit) {
+    private fun fetchFromCache(callback: (List<RoomSubReddit>) -> Unit) {
         launch(Dispatchers.IO) {
             val all = db.subredditDao().getAll()
             launch(Dispatchers.Main) {
-                callback(all, false)
+                callback(all)
             }
         }
     }
 
     private fun fetchFromApi(
         list: List<SubRedditDto>?,
-        callback: (List<RoomSubReddit>, Boolean) -> Unit
+        callback: (List<RoomSubReddit>) -> Unit
     ) {
         list?.let { all ->
             launch(Dispatchers.IO) {
                 db.subredditDao().insertSubRedditList(all.map { it.toRoom() })
-                launch(Dispatchers.Main) { callback(all.map { it.toRoom() }, true) }
+                launch(Dispatchers.Main) { callback(all.map { it.toRoom() }) }
             }
         }
     }
