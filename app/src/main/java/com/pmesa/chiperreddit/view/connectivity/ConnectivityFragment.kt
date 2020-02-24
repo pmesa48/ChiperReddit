@@ -33,7 +33,7 @@ class ConnectivityFragment : Fragment() {
     fun makeUnavailable() {
         isAvailable = false
         connectivity_container.visibility = View.VISIBLE
-        connectivity_container.setBackgroundResource(R.color.colorAccent)
+        connectivity_container.setBackgroundResource(R.color.colorOffline)
         connectivity_status_tv.text = getString(R.string.tag_offline)
     }
 
@@ -41,7 +41,7 @@ class ConnectivityFragment : Fragment() {
         if(!isAvailable) {
             isAvailable = true
             connectivity_container.visibility = View.VISIBLE
-            connectivity_container.setBackgroundResource(R.color.colorPrimaryDark)
+            connectivity_container.setBackgroundResource(R.color.colorOnline)
             connectivity_status_tv.text = getString(R.string.tag_online)
             Handler().postDelayed({ connectivity_container.visibility = View.GONE }, 2000)
         }

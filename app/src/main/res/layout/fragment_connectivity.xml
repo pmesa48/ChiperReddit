@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="64dp"
     android:id="@+id/connectivity_container"
-    android:background="@color/colorAccent"
+    android:background="@color/colorOnline"
     android:padding="16dp"
     tools:context=".view.connectivity.ConnectivityFragment">
 
@@ -14,6 +14,7 @@
         android:textSize="22sp"
         android:layout_centerVertical="true"
         android:textStyle="bold"
+        android:text="@string/tag_online"
         android:textColor="@color/cardview_light_background"
         android:layout_height="match_parent" />
 

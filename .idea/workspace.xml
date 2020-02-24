@@ -12,7 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87393e52-7791-4b1c-af6d-1bffb8f047aa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/GetContentResponseDto.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -23,18 +22,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/SubRedditRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/SubRedditRepository.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/GetContentResponse.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApiServices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApiServices.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RetrofitRedditApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RetrofitRedditApi.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/cache/RedditContentCache.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/cache/RoomSubReddit.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/cache/RoomSubReddit.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/SubRedditListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/SubRedditListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/SubRedditListFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/SubRedditListFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditDetailViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditDetailViewModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditListViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditListViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -61,28 +51,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApi.kt">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RedditApiServices.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RetrofitRedditApi.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-248">
-              <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+            <state relative-caret-position="120">
+              <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
             </state>
           </provider>
         </entry>
@@ -132,11 +104,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditDetailViewModel.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+            <state relative-caret-position="313">
+              <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -197,7 +188,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditList.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/SubRedditListFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/SubRedditListAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_sub_reddit.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_sub_reddit.xml" />
@@ -222,7 +212,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/Status.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ChiperConnectivityManager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/sub_reddit_list_fragment.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/NetworkStateReceiver.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityActivity.kt" />
@@ -230,7 +219,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/SubRedditListFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/list/MainActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/ViewModelFactory.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/GetContentResponse.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/GetContentResponseDto.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/source/api/RetrofitRedditApi.kt" />
@@ -238,6 +226,9 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditListViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/repo/SubRedditRepository.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditDetailViewModel.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml" />
       </list>
     </option>
   </component>
@@ -330,13 +321,6 @@
             <path>
               <item name="ChiperReddit" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="chiperreddit" type="cbb59c9e:AndroidPsiDirectoryNode" />
-              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ChiperReddit" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
             </path>
             <path>
@@ -344,6 +328,12 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
+            <path>
+              <item name="ChiperReddit" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="ChiperReddit" type="1abcf292:AndroidViewProjectNode" />
@@ -672,13 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="721">
@@ -704,14 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="151">
           <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
         </state>
       </provider>
       <provider editor-type-id="android-designer2" />
@@ -745,17 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="12" lean-forward="true" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
-          <folding>
-            <element signature="e#1148#1179#0" expanded="true" />
-            <element signature="e#1387#1417#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -882,10 +846,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/viewmodel/SubRedditDetailViewModel.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="28" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="313">
+          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="45" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/pmesa/chiperreddit/view/connectivity/ConnectivityFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_connectivity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
     </entry>
   </component>
   <component name="masterDetails">

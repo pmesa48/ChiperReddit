@@ -6,4 +6,6 @@
 
     <color name="colorBackground">#DFDFDF</color>
     <color name="colorDividerBackground">#555555</color>
+    <color name="colorOnline">#5AE65F</color>
+    <color name="colorOffline">#F72E2E</color>
 </resources>
