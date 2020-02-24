@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 
 class SubRedditListViewModel(application: Application, db: AppDatabase, api: RedditApi) : AndroidViewModel(application) {
 
-    private var subRedditRepository : SubRedditRepository = SubRedditRepository(db, api)
+    private var subRedditRepository : SubRedditRepository = SubRedditRepository.getInstance(db, api)
 
     private var subreddits: MutableLiveData<List<RoomSubReddit>>? = null
 

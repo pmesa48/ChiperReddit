@@ -1,7 +1,7 @@
 package com.pmesa.chiperreddit.repo
 
 import com.pmesa.chiperreddit.repo.source.api.RedditApi
-import com.pmesa.chiperreddit.repo.source.api.SubReddit
+import com.pmesa.chiperreddit.repo.source.api.SubRedditDto
 import com.pmesa.chiperreddit.repo.source.cache.AppDatabase
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 import kotlinx.coroutines.CoroutineScope
@@ -35,7 +35,7 @@ class SubRedditRepository(
     }
 
     private fun fetchFromApi(
-        list: List<SubReddit>?,
+        list: List<SubRedditDto>?,
         callback: (List<RoomSubReddit>, Boolean) -> Unit
     ) {
         list?.let { all ->
@@ -46,11 +46,11 @@ class SubRedditRepository(
         }
     }
 
-    fun get(url: String, callback: (RoomSubReddit, Boolean) -> Unit) {
+    fun get(url: String, callback: (RoomSubReddit) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             val subReddit = db.subredditDao().getByUrl(url)
             GlobalScope.launch(Dispatchers.Main) {
-                callback(subReddit, false)
+                callback(subReddit)
             }
         }
     }

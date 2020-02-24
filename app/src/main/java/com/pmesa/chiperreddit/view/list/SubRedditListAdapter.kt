@@ -6,7 +6,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.common.inflate
-import com.pmesa.chiperreddit.repo.source.api.SubReddit
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 
 class SubRedditListAdapter(private var onClickListener: (Int, RoomSubReddit) -> Unit): RecyclerView.Adapter<SubRedditViewHolder>() {

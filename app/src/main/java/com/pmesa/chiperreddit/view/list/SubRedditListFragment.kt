@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.pmesa.chiperreddit.R
 import com.pmesa.chiperreddit.common.debug
-import com.pmesa.chiperreddit.repo.source.api.SubReddit
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 import com.pmesa.chiperreddit.view.subreddit.SubRedditActivity
 import com.pmesa.chiperreddit.view.subreddit.SubRedditFragment

@@ -7,5 +7,5 @@ import retrofit2.http.GET
 interface RedditApiServices {
 
     @GET("reddits.json")
-    fun getContent(): Call<GetContentResponse?>?
+    fun getContent(): Call<GetContentResponseDto?>?
 }

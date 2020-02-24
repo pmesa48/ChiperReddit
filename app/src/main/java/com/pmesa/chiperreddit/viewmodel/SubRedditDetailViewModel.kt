@@ -9,7 +9,7 @@ import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 
 class SubRedditDetailViewModel(db: AppDatabase, api: RedditApi) : ViewModel() {
 
-    private var subRedditRepository : SubRedditRepository = SubRedditRepository(db, api)
+    private var subRedditRepository : SubRedditRepository = SubRedditRepository.getInstance(db, api)
 
 
     private var subreddit: MutableLiveData<RoomSubReddit>? = null
@@ -22,8 +22,8 @@ class SubRedditDetailViewModel(db: AppDatabase, api: RedditApi) : ViewModel() {
         return subreddit
     }
 
-    fun getSubRedditByUrl(url: String){
-        subRedditRepository.get(url) { model, error ->
+    private fun getSubRedditByUrl(url: String){
+        subRedditRepository.get(url) { model ->
             subreddit?.value = model
         }
     }

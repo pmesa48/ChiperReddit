@@ -10,25 +10,25 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 
-class RetrofitRedditApi(val retrofit: Retrofit) : RedditApi {
+class RetrofitRedditApi(retrofit: Retrofit) : RedditApi {
 
     private val mService: RedditApiServices = retrofit.create<RedditApiServices>(
             RedditApiServices::class.java)
 
-    override fun getContent(callback: (List<SubReddit>?, error : Boolean) -> Unit) {
-        mService.getContent()?.enqueue(object : Callback<GetContentResponse?>{
+    override fun getContent(callback: (List<SubRedditDto>?, error : Boolean) -> Unit) {
+        mService.getContent()?.enqueue(object : Callback<GetContentResponseDto?>{
             override fun onResponse(
-                call: Call<GetContentResponse?>,
-                response: Response<GetContentResponse?>
+                call: Call<GetContentResponseDto?>,
+                response: Response<GetContentResponseDto?>
             ) {
                 response.body()?.content?.let { data ->
-                    data.subReddits?.let {
+                    data.subRedditDtos?.let {
                         callback(it, false)
                     } ?: run { callback(null, true)}
                 } ?: run { callback(null, true) }
             }
 
-            override fun onFailure(call: Call<GetContentResponse?>, t: Throwable) {
+            override fun onFailure(call: Call<GetContentResponseDto?>, t: Throwable) {
                 Log.e(TAG, t.message, t)
                 callback(null, true)
             }
