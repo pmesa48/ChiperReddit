@@ -4,12 +4,14 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.graphics.drawable.BitmapDrawable
 import android.graphics.drawable.Drawable
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.pmesa.chiperreddit.R
+import com.pmesa.chiperreddit.common.getAvgRgb
 import com.pmesa.chiperreddit.common.inflate
 import com.pmesa.chiperreddit.repo.source.cache.RoomSubReddit
 import com.squareup.picasso.Picasso
@@ -62,7 +64,10 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
         mSubscribers.text = "${subReddit.subscribers}  ${itemView.context.getString(R.string.subscribers_lbl)}"
         mLang.text = subReddit.lang?.toUpperCase()
         mTitle.setTextColor(ContextCompat.getColor(itemView.context, R.color.blackTitle))
-        mContainer.setBackgroundResource(R.color.cardview_light_background)
+        val outValue = TypedValue()
+        itemView.context.theme
+            .resolveAttribute(R.attr.selectableItemBackground, outValue, true)
+        mContainer.setBackgroundResource(outValue.resourceId)
         bindTextColor(subReddit)
         if(subReddit.background != null && subReddit.background.isNotBlank()){
             Picasso.get().load(subReddit.background).into(target(subReddit))
@@ -111,33 +116,4 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
         }
     }
 
-}
-
-private fun Bitmap.getAvgRgb(): RGB {
-
-    var redColors = 0
-    var greenColors = 0
-    var blueColors = 0
-    var pixelCount = 0
-
-    for (y in 0 until this.height) {
-        for (x in 0 until this.width) {
-            val c = this.getPixel(x, y)
-            pixelCount++
-            redColors += Color.red(c)
-            greenColors += Color.green(c)
-            blueColors += Color.blue(c)
-        }
-    }
-    return RGB(redColors / pixelCount, greenColors / pixelCount, blueColors / pixelCount)
-}
-
-data class RGB(val red: Int, val green: Int, val blue: Int) {
-    fun needContrast(): Boolean {
-        return red + green + blue < THRESHOLD
-    }
-
-    companion object{
-        const val THRESHOLD = 300
-    }
 }
