@@ -17,4 +17,7 @@ interface SubRedditDao {
 
     @Update(entity = RoomSubReddit::class, onConflict = OnConflictStrategy.REPLACE)
     fun update(it: RoomSubReddit)
+
+    @Delete(entity = RoomSubReddit::class)
+    fun delete(it: RoomSubReddit)
 }

@@ -26,15 +26,19 @@ class SubRedditListViewModel(application: Application, db: AppDatabase, api: Red
     }
 
     fun loadSubReddits() {
-        viewModelScope.launch {
-            subRedditRepository.get { list, dataCorrect ->
-                subreddits?.value = list
-            }
+        subRedditRepository.get { list, _ ->
+            subreddits?.value = list
         }
     }
 
     fun update(it: RoomSubReddit) {
         subRedditRepository.update(it)
+    }
+
+    fun delete(subReddit: RoomSubReddit) {
+        subRedditRepository.delete(subReddit){
+            subreddits?.value = it
+        }
     }
 
 }

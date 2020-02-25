@@ -1,5 +1,6 @@
 package com.pmesa.chiperreddit.repo
 
+import com.pmesa.chiperreddit.common.debug
 import com.pmesa.chiperreddit.repo.source.api.RedditApi
 import com.pmesa.chiperreddit.repo.source.api.SubRedditDto
 import com.pmesa.chiperreddit.repo.source.cache.AppDatabase
@@ -30,6 +31,16 @@ class SubRedditRepository(
             val all = db.subredditDao().getAll()
             launch(Dispatchers.Main) {
                 callback(all, true)
+            }
+        }
+    }
+
+    fun delete(it: RoomSubReddit, callback: (List<RoomSubReddit>) -> Unit){
+        launch(Dispatchers.IO) {
+            db.subredditDao().delete(it)
+            val newList = db.subredditDao().getAll()
+            launch(Dispatchers.Main){
+                callback(newList)
             }
         }
     }

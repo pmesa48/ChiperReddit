@@ -23,7 +23,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_portable_wifi_off_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_remove_circle_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -34,7 +34,7 @@
                         <option name="values">
                           <map>
                             <entry key="color" value="6e6e6e" />
-                            <entry key="outputName" value="ic_wifi_off" />
+                            <entry key="outputName" value="ic_remove" />
                             <entry key="sourceFile" value="$USER_HOME$/Desktop/logo.svg" />
                           </map>
                         </option>

@@ -41,8 +41,10 @@ class SubRedditListFragment : Fragment() {
         viewAdapter = SubRedditListAdapter( { position: Int, subReddit: RoomSubReddit ->
             debug(TAG, "Clicked position #$position - ${subReddit.displayName}")
             goToSubReddit(subReddit)
-        }, {
+        }, {//UPDATE
             viewModel.update(it)
+        }, {//DELETE
+            viewModel.delete(it)
         })
         subreddits_rv.adapter = viewAdapter
         subreddits_rv.layoutManager = LinearLayoutManager(context)

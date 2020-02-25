@@ -20,12 +20,13 @@ import kotlinx.coroutines.launch
 
 
 class SubRedditListAdapter(private var onClickListener: (Int, RoomSubReddit) -> Unit,
-                           private var onContrastChanged: (RoomSubReddit) -> Unit): RecyclerView.Adapter<SubRedditViewHolder>() {
+                           private var onContrastChanged: (RoomSubReddit) -> Unit,
+                           private var onDeleteListener: (RoomSubReddit) -> Unit): RecyclerView.Adapter<SubRedditViewHolder>() {
 
     private var subreddits: List<RoomSubReddit> = emptyList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SubRedditViewHolder =
-        SubRedditViewHolder(parent.inflate(R.layout.view_holder_subreddit), onClickListener, onContrastChanged)
+        SubRedditViewHolder(parent.inflate(R.layout.view_holder_subreddit), onClickListener, onContrastChanged, onDeleteListener)
 
 
     override fun getItemCount(): Int = subreddits.size
@@ -42,13 +43,15 @@ class SubRedditListAdapter(private var onClickListener: (Int, RoomSubReddit) -> 
 }
 
 class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) -> Unit,
-                          var onContrastChanged: (RoomSubReddit)-> Unit ) : RecyclerView.ViewHolder(view){
+                          var onContrastChanged: (RoomSubReddit)-> Unit,
+                          var onDeleteListener: (RoomSubReddit) -> Unit) : RecyclerView.ViewHolder(view){
 
     private var mTitle: TextView = view.findViewById(R.id.subreddit_title)
     private var mSubtitle: TextView = view.findViewById(R.id.subreddit_subtitle)
     private var mLang: TextView = view.findViewById(R.id.lang_tv)
     private var mSubscribers: TextView = view.findViewById(R.id.subscribers_tv)
     private var mContainer: View = view.findViewById(R.id.subreddit_clickeable_layout)
+    private var mDelete: View = view.findViewById(R.id.remove_iv)
 
     fun bind(
         subReddit: RoomSubReddit,
@@ -64,6 +67,7 @@ class SubRedditViewHolder(view: View, var onClickListener: (Int, RoomSubReddit) 
         if(subReddit.background != null && subReddit.background.isNotBlank()){
             Picasso.get().load(subReddit.background).into(target(subReddit))
         }
+        mDelete.setOnClickListener { onDeleteListener(subReddit) }
         mContainer.setOnClickListener { onClickListener(position,subReddit)  }
     }
 
