@@ -3,7 +3,6 @@ package com.pmesa.chiperreddit.repo.source.cache
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.pmesa.chiperreddit.repo.source.api.SubRedditDto
 
 @Entity
 data class RoomSubReddit(
@@ -16,5 +15,6 @@ data class RoomSubReddit(
     @ColumnInfo(name = "background") val background: String?,
     @ColumnInfo(name = "lang") val lang: String?,
     @ColumnInfo(name = "over18") val over18: Boolean?,
-    @ColumnInfo(name = "subscribers") val subscribers: Long? = 0
+    @ColumnInfo(name = "subscribers") val subscribers: Long? = 0,
+    @ColumnInfo(name="contrast") var contrast: Boolean = false
 )

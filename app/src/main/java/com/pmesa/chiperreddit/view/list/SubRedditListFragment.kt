@@ -37,10 +37,13 @@ class SubRedditListFragment : Fragment() {
         refresh_layout_srl.setOnRefreshListener {
             viewModel.loadSubReddits()
         }
-        viewAdapter = SubRedditListAdapter { position: Int, subReddit: RoomSubReddit ->
+        refresh_layout_srl.isRefreshing = true
+        viewAdapter = SubRedditListAdapter( { position: Int, subReddit: RoomSubReddit ->
             debug(TAG, "Clicked position #$position - ${subReddit.displayName}")
             goToSubReddit(subReddit)
-        }
+        }, {
+            viewModel.update(it)
+        })
         subreddits_rv.adapter = viewAdapter
         subreddits_rv.layoutManager = LinearLayoutManager(context)
         subreddits_rv.setHasFixedSize(true)

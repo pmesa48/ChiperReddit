@@ -17,6 +17,6 @@ class WebViewActivity : AppCompatActivity() {
     }
 
     companion object{
-        val URL = "URL"
+        const val URL = "URL"
     }
 }

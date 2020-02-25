@@ -15,7 +15,7 @@ class SubRedditRepository(
     private val mApi: RedditApi) : CoroutineScope {
 
 
-    fun get(callback: (List<RoomSubReddit>) -> Unit) {
+    fun get(callback: (List<RoomSubReddit>, Boolean) -> Unit) {
             mApi.getContent { list, error ->
                 if (!error) {
                     fetchFromApi(list, callback)
@@ -25,23 +25,24 @@ class SubRedditRepository(
             }
      }
 
-    private fun fetchFromCache(callback: (List<RoomSubReddit>) -> Unit) {
+    private fun fetchFromCache(callback: (List<RoomSubReddit>, Boolean) -> Unit) {
         launch(Dispatchers.IO) {
             val all = db.subredditDao().getAll()
             launch(Dispatchers.Main) {
-                callback(all)
+                callback(all, true)
             }
         }
     }
 
     private fun fetchFromApi(
         list: List<SubRedditDto>?,
-        callback: (List<RoomSubReddit>) -> Unit
+        callback: (List<RoomSubReddit>, Boolean) -> Unit
     ) {
         list?.let { all ->
             launch(Dispatchers.IO) {
                 db.subredditDao().insertSubRedditList(all.map { it.toRoom() })
-                launch(Dispatchers.Main) { callback(all.map { it.toRoom() }) }
+                val size = db.subredditDao().getAll().size
+                launch(Dispatchers.Main) { callback(all.map { it.toRoom() }, size > 0) }
             }
         }
     }
@@ -49,9 +50,13 @@ class SubRedditRepository(
     fun get(url: String, callback: (RoomSubReddit) -> Unit) {
         GlobalScope.launch(Dispatchers.IO) {
             val subReddit = db.subredditDao().getByUrl(url)
-            GlobalScope.launch(Dispatchers.Main) {
-                callback(subReddit)
-            }
+            GlobalScope.launch(Dispatchers.Main) { callback(subReddit) }
+        }
+    }
+
+    fun update(it: RoomSubReddit) {
+        GlobalScope.launch(Dispatchers.IO){
+            db.subredditDao().update(it)
         }
     }
 

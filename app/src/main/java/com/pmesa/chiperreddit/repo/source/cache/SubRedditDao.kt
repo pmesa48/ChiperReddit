@@ -14,4 +14,7 @@ interface SubRedditDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertSubRedditList(list: List<RoomSubReddit>)
+
+    @Update(entity = RoomSubReddit::class, onConflict = OnConflictStrategy.REPLACE)
+    fun update(it: RoomSubReddit)
 }

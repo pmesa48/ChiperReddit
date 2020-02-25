@@ -15,4 +15,5 @@
     <string name="reddit">Reddit</string>
     <string name="yes_option">YES</string>
     <string name="no_option">NO</string>
+    <string name="check_your_connection_and_try_again">Check your connection and try again</string>
 </resources>

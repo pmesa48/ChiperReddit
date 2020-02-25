@@ -32,7 +32,9 @@ class SubRedditDto {
             childData?.bannerImage,
             childData?.lang,
             childData?.over18,
-            childData?.subscribers)
+            childData?.subscribers,
+            false
+        )
     }
 }
 
